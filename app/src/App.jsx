@@ -1,6 +1,7 @@
 import Tabs from "./components/Tabs";
 import invoiceData from './utils/data.json';
 import { useState } from "react";
+import plus from "./utils/icon-plus.svg"
 function App() {
   const[invoices,setInvoices]=useState(invoiceData);
 
@@ -52,12 +53,12 @@ function App() {
       <div>There are total 7 Invoices</div>
       </div>
       <div className="left-nav">
-      <div><select onChange={(e)=>handleFilter(e)}>
+      <div>Filter By status <select onChange={(e)=>handleFilter(e)}>
       <option value="Draft">Draft</option>
       <option value="Pending">Pending</option>
       <option value="Paid">Paid</option>
     </select></div>
-    <button onClick={addInvoice} className="AddInvoice">AddInvoice</button>
+    <button onClick={addInvoice} className="AddInvoice"><img src={plus} className="plus"/>New Invoice</button>
     </div>
     </nav>
     <div className="Invoices">{ invoices.map((invoice)=> <Tabs id={invoice.id} createdAt={invoice.createdAt} clientName={invoice.clientName} itemTotal={invoice.total} status={invoice.status}/>)}</div>
