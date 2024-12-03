@@ -1,12 +1,14 @@
 import Tabs from "./components/Tabs";
 import invoiceData from './utils/data.json';
-import { useState } from "react";
-import plus from "./utils/icon-plus.svg"
+import { useContext, useState } from "react";
+import plus from "./utils/icon-plus.svg";
+import { SideNav } from "./components/SideNav";
+import { BillContext } from "./context";
+
 function App() {
-  const[invoices,setInvoices]=useState(invoiceData);
+  const{invoices,setInvoices}=useContext(BillContext);
 
   const handleFilter=(e)=>{
-    console.log(e.target.id);
     const Draft=invoices.filter((item)=>item.status=="pending");
     setInvoices(Draft);
   }
@@ -46,7 +48,8 @@ function App() {
   }
 
 
-  return <div className="homepage">
+  return <div>   <SideNav/>
+  <div className="homepage">
     <nav>
       <div className="right-nav">
       <div className="Invoices-heading">Invoices</div>
@@ -61,8 +64,10 @@ function App() {
     <button onClick={addInvoice} className="AddInvoice"><img src={plus} className="plus"/>New Invoice</button>
     </div>
     </nav>
-    <div className="Invoices">{ invoices.map((invoice)=> <Tabs id={invoice.id} createdAt={invoice.createdAt} clientName={invoice.clientName} itemTotal={invoice.total} status={invoice.status}/>)}</div>
+    <div className="Invoices">{ invoices.map((invoice,index)=> <Tabs key={invoice.id} id={invoice.id} createdAt={invoice.createdAt} clientName={invoice.clientName} itemTotal={invoice.total} status={invoice.status}/>)}</div>
      </div>
+     </div>
+
 }
 
 export default App;

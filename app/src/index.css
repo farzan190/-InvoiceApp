@@ -78,6 +78,9 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 260px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 .left-nav{
   display: flex;
@@ -88,7 +91,7 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .bill-Id{
@@ -136,4 +139,45 @@ font-size: small;
   width: 10px;
   padding: 10px ;
   border-radius: 50%;
+}
+.sidenav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 103px;
+  height: 100%;
+  background-color: #373b53;
+  margin-left: -10px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  border-radius: 10px;
+  overflow-y:visible ;
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #373b53;
+}
+.sidenav-bottom-images{
+  background-color: #373b53;
+}
+.moon{
+  background-color:#373b53 ;
+}
+.logo{
+  background-color: #373b53;
+}
+.sidenav-bottom-images{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.link{
+  text-decoration: none;
+  color: #0c0e16;
 }
