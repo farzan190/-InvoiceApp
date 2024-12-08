@@ -141,6 +141,7 @@ font-size: small;
   border-radius: 50%;
 }
 .sidenav{
+  z-index: +10;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -180,4 +181,447 @@ font-size: small;
 .link{
   text-decoration: none;
   color: #0c0e16;
+}
+.receipt{
+  display:  flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+   width: auto;
+   width: 1000px;
+   gap: 30px;
+}
+section{
+ display:  flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: white;
+ margin-bottom: 60px;
+
+}
+.billing-address{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 162px;
+  background-color: white;
+
+}
+.kafafa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.receipt-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 30px 30px;
+ border-radius: 10px;
+}
+.edit{
+  color: #7e88c3;
+ background-color:  #f9fafe;
+ padding: 14px 25px;
+ border: none;
+ border-radius: 20px;
+ font-weight: 600;
+ margin-right: 10px;
+}
+.delete{
+  color: #fff;
+  background-color:#ec5757; 
+  font-weight: 600;
+  padding: 14px 20px ;
+  margin-right: 5px;
+  border: none;
+  border-radius: 25px;
+}
+.markAsPaid{
+  color: #fff;
+  background-color: #7c5dfa;
+  font-weight: 600;
+  border: none;
+  padding:15px 20px;
+  border-radius: 25px;
+
+}
+
+.nav-buttons{
+  background-color: white;
+}
+.receipt-status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+}
+.status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 70px;
+  color: #33d69f;
+  background-color: rgba(4, 9, 8, 0.06);
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+ gap: 10px;
+ background-color: rgba(51, 214, 159, .06);
+}
+.stats{
+  background-color: white;
+  color: grey;
+  font-size: 15px;
+}
+
+.aashna{
+  background-color: white;
+  padding:25px  30px ;
+}
+.id-description{
+  background-color: white;
+}
+.item-id{
+  font-size: larger;
+  font-weight: 600;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.item-desc{
+  background-color: white;
+  font-size: small;
+  color: #888eb0;;
+
+}
+.clientAddress{
+  font-size: small;
+  background-color: white;
+  line-height: 20px;
+  color:  #888eb0;
+}
+.street{
+  background-color: white;
+  color:  #888eb0;
+
+}
+.city{
+  background-color: white;
+  color:  #888eb0;
+
+}
+.postcode{
+  background-color: white;
+  color:  #888eb0;
+
+}
+.country{
+  background-color: white;
+  color:  #888eb0;
+
+}
+
+.dates{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.invoice-date{
+  color:#888eb0;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.sentTo{
+  color:#888eb0;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.billTo{
+  color:#888eb0;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.BillClientName{
+  background-color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.InvoiceCreatedAt{
+  background-color: white;
+  font-weight: 600;
+}
+.senderAddress{
+  background-color: white;
+
+}
+.clientEmail{
+  background-color: white;
+}
+.clientMail{
+  background-color: white;
+  font-weight: 600;
+}
+
+.item-table{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafe;
+  width: 700px;
+  padding: 30px;
+}
+.bagga{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+.itemNname{
+  background-color: red;
+}
+
+.itemNameDetails{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9fafe;
+
+}
+.itemQuantyDetails{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color:#f9fafe;
+  
+}
+.itemPriceDetails{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9fafe;
+
+}
+.itemSumDetails{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9fafe;
+}
+.name-itemName{
+  background-color: #f9fafe;
+  color: #888eb0;;
+}
+.name-Qty{
+  background-color: #f9fafe;
+  color: #888eb0;;
+}
+.name-price{
+  background-color: #f9fafe;
+  color: #888eb0;;
+
+}
+
+.total{
+  background-color: #f9fafe;
+color: #888eb0;;
+}
+.itemName{
+  background-color: #f9fafe;
+  font-weight: 600;
+
+}
+.itemQuantity{
+  background-color: #f9fafe;
+  font-weight: 600;
+
+}
+.itemPrice{
+  background-color: #f9fafe;
+  font-weight: 600;
+
+
+}
+.itemTotal{
+  background-color: #f9fafe;
+  font-weight: 600;
+}
+.AmountDue{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 80px;
+  background-color: #373b53;;
+  color: white;
+  padding: 0px 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+.amount{
+ background-color:#373b53 ;
+ color: white;
+}
+.totalAmountDue{
+  background-color:#373b53 ;
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+
+
+.side-menu {
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+}
+
+.Kontre{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  position: fixed;
+  width: min-content;
+  left: 100px;
+  transition: 0.3s ;
+  width: 40%;
+  height: 100%;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding-left: 30px;
+  overflow-y: auto;
+}
+.KontreNot{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  position: fixed;
+  width: min-content;
+  left: -372px;
+  transition: 0.3s ;
+  width: 40%;
+  height: 100%;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding-left: 30px;
+}
+
+.cityLabelInput{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+
+}
+.postCodeLabelInput{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+
+}
+.countryLabelInput{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  color:  #888eb0;
+}
+.CPC{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  color:  #888eb0;
+  gap: 20px;
+}
+.streetAddress{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  color:  #888eb0;
+}
+.EclientName{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  color:  #888eb0;
+}
+.clientEmail{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  color:  #888eb0;
+}
+.billTo{
+  background-color: white;
+  color: #7c5dfa;
+}
+label{
+  background-color: white;
+}
+input{
+  border: none;
+  background-color: white;
+  border:  1px solid #dfe3fa;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.itemCategories{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+.calculator{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
+.gedihaal{
+  width: 100%;
+}
+.streetAddress{
+  width: 95%;
+}
+.itemCalculator{
+  width: 500px;
 }

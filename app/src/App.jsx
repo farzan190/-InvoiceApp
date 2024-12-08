@@ -4,9 +4,10 @@ import { useContext, useState } from "react";
 import plus from "./utils/icon-plus.svg";
 import { SideNav } from "./components/SideNav";
 import { BillContext } from "./context";
-
+import Invoice from "./pages/Invoice";
 function App() {
   const{invoices,setInvoices}=useContext(BillContext);
+  const [isOpen,setIsOpen]=useState(false);
 
   const handleFilter=(e)=>{
     const Draft=invoices.filter((item)=>item.status=="pending");
@@ -14,41 +15,13 @@ function App() {
   }
 
   const addInvoice=()=>{
-    setInvoices([...invoices,{
-      "id": "RT3080",
-      "createdAt": "2021-8-18",
-      "paymentDue": "2021-8-19",
-      "description": "Re-branding",
-      "paymentTerms": 1,
-      "clientName": "PHAJJU",
-      "clientEmail": "jensenh@mail.com",
-      "status": "paid",
-      "senderAddress": {
-        "street": "19 Union Terrace",
-        "city": "London",
-        "postCode": "E1 3EZ",
-        "country": "United Kingdom"
-      },
-      "clientAddress": {
-        "street": "106 Kendell Street",
-        "city": "Sharrington",
-        "postCode": "NR24 5WQ",
-        "country": "United Kingdom"
-      },
-      "items": [
-        {
-          "name": "Brand Guidelines",
-          "quantity": 1,
-          "price": 1800.90,
-          "total": 1800.90
-        }
-      ],
-      "total": 1800.90
-    }])
+       setIsOpen(!isOpen);
   }
 
 
   return <div>   <SideNav/>
+<div>     <Invoice/> </div>
+   
   <div className="homepage">
     <nav>
       <div className="right-nav">
@@ -66,6 +39,7 @@ function App() {
     </nav>
     <div className="Invoices">{ invoices.map((invoice,index)=> <Tabs key={invoice.id} id={invoice.id} createdAt={invoice.createdAt} clientName={invoice.clientName} itemTotal={invoice.total} status={invoice.status}/>)}</div>
      </div>
+
      </div>
 
 }
