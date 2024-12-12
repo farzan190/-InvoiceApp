@@ -30,15 +30,15 @@ const NewItemList=({id,name,qty,price,total})=>{
    console.log(itemsList);
 
 
-return (<div>
-         <div>
+return (
+         <div className="itemInputFields">
         <input  type="text"   value={itemName}       onChange={(e)=>setItemName(e.target.value)}/>
         <input  type="number" value={itemQuantity}   onChange={(e)=>setQuantity(e.target.value)}/>
         <input  type="number" value={itemPrice}      onChange={(e)=>setPrice(e.target.value)}/>
         <input  type="number" value={itemTotal}      onChange={(e)=>setTotal(e.target.value)}/>
         </div>
 
-</div>)
+)
 }
 
 export default NewItemList;

@@ -42,6 +42,7 @@ const Receipt=()=>{
           <div>
         <div className="invoice-date">Invoice Date</div>
         <div className="InvoiceCreatedAt">{item.createdAt}</div>
+        <div>{console.log(item.createdAt)}</div>
         </div>
         <div>
         <div>Payment Due</div>
