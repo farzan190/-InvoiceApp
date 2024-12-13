@@ -17,9 +17,10 @@ export  const ContextProvider=({children})=>{
         "total": 0,
       }
     ]);
+    const [popover,setPopover]=useState(true);
     
      
-    return <BillContext.Provider value={{itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
+    return <BillContext.Provider value={{popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
        {children}
     </BillContext.Provider>
 

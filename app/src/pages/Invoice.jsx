@@ -19,6 +19,9 @@ const Invoice=()=>{
 
     const [date,setDate]=useState('2024-12-12');
     const{invoices,setInvoices}=useContext(BillContext);
+    const {popover,setPopover}=useContext(BillContext);
+
+
    const modernList=itemsList.map((item)=>item);
    
 
@@ -52,14 +55,18 @@ const Invoice=()=>{
       ])
     }
 
+   const handleDiscard=()=>{
+         
+       
+   }
 
 
 
 
 
 
-
-    return <div className="popUpForm">
+    return <div className="invoicePopup">
+    <div className={popover?"popUpForm":"popUpFormHidden"}>
  
     <div className="popsenderAddress">
    <div className="billTo">Bill From</div>
@@ -167,13 +174,17 @@ const Invoice=()=>{
 
 
 <div className="popUpButtons">
-<button className="discard">Discard</button>
+<button className="discard" onClick={()=>setPopover(!popover)}>Discard</button>
 <button className="saveAsDraft" onClick={()=>handleSaveAsDraft()}>Save as Draft</button>
 <button className="saveAndSend">Save and Send</button>
 
     
 </div>
 
+    </div>
+    
+    <div className={popover?"shadow":"shadowHidden"}></div>
+    
     </div>
 }
 export default Invoice;

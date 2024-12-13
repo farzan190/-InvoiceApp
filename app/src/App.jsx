@@ -7,16 +7,14 @@ import { BillContext } from "./context";
 import Invoice from "./pages/Invoice";
 function App() {
   const{invoices,setInvoices}=useContext(BillContext);
-  const [isOpen,setIsOpen]=useState(false);
+  const {popover,setPopover}=useContext(BillContext);
 
   const handleFilter=(e)=>{
     const Draft=invoices.filter((item)=>item.status=="pending");
     setInvoices(Draft);
   }
 
-  const addInvoice=()=>{
-       setIsOpen(!isOpen);
-  }
+  
 
 
   return <div>   <SideNav/>
@@ -34,7 +32,7 @@ function App() {
       <option value="Pending">Pending</option>
       <option value="Paid">Paid</option>
     </select></div>
-    <button onClick={addInvoice} className="AddInvoice"><img src={plus} className="plus"/>New Invoice</button>
+    <button onClick={()=>setPopover(!popover)}  className="AddInvoice"><img src={plus} className="plus"/>New Invoice</button>
     </div>
     </nav>
     <div className="Invoices">{ invoices.map((invoice,index)=> <Tabs key={invoice.id} id={invoice.id} createdAt={invoice.createdAt} clientName={invoice.clientName} itemTotal={invoice.total} status={invoice.status}/>)}</div>
