@@ -4,27 +4,15 @@ import NewItemList from "../components/NewItemList";
 import { BillContext } from "../context";
 
 const Invoice=()=>{
-    const {itemsList,setItemsList}=useContext(BillContext);
-    const [senderStreet,setSenderStreet]=useState("");
-    const [senderCity,setSenderCity]=useState("");
-    const [senderPostCode,setSenderPostCode]=useState("");
-    const [senderCountry,setSenderCountry]=useState("");
-
-    const [clientStreet,setClientStreet]=useState("");
-    const [clientCity,setClientCity]=useState("");
-    const [clientPostCode,setClientPostCode]=useState("");
-    const [clientCountry,setClientCountry]=useState("");
-    const [clientName,setClientName]=useState("");
-    const [clientEmail,setClientEmail]=useState("");
-
+    
+    const {itemsList,setItemsList,senderCity,setSenderCity,senderPostCode,setSenderPostCode,senderCountry,setSenderCountry,clientStreet,setClientStreet,clientCity,setClientCity,clientPostCode,setClientPostCode,clientCountry,setClientCountry,clientName,setClientName,clientEmail,setClientEmail}=useContext(BillContext);
+    
     const [date,setDate]=useState('2024-12-12');
     const{invoices,setInvoices}=useContext(BillContext);
-    const {popover,setPopover}=useContext(BillContext);
+    const {popover,setPopover,senderStreet,setSenderStreet}=useContext(BillContext);
 
 
    const modernList=itemsList.map((item)=>item);
-   
-
 
     const handleSaveAsDraft=()=>{
       setInvoices([...invoices,{
@@ -54,14 +42,6 @@ const Invoice=()=>{
 
       ])
     }
-
-   const handleDiscard=()=>{
-         
-       
-   }
-
-
-
 
 
 

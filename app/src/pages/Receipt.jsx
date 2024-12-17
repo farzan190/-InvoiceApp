@@ -1,13 +1,42 @@
+import { SideNav } from "../components/SideNav";
 import { BillContext } from "../context";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
+import Invoice from "./Invoice";
+
 
 
 const Receipt=()=>{
     const {selectedTab,setSelectedTab}=useContext(BillContext);
-  const{invoices,setInvoices}=useContext(BillContext);
+    const{invoices,setInvoices}=useContext(BillContext);
+    const {popover,setPopover,senderStreet,setSenderStreet,setSenderCity,setSenderPostCode,setSenderCountry,setClientStreet,setClientCity,setClientPostCode,setClientCountry,setClientName,setClientEmail}=useContext(BillContext);
+
+
+    useEffect(() => {
+    const selectedInvoice = invoices.find((item) => item.id === selectedTab);
+    if (selectedInvoice) {
+      setSenderStreet(selectedInvoice.senderAddress.street);
+      setSenderCity(selectedInvoice.senderAddress.city);
+      setSenderPostCode(selectedInvoice.senderAddress.postCode);
+      setSenderCountry(selectedInvoice.senderAddress.country);
+  
+      setClientStreet(selectedInvoice.clientAddress.street);
+      setClientCity(selectedInvoice.clientAddress.city);
+      setClientPostCode(selectedInvoice.clientAddress.postCode);
+      setClientCountry(selectedInvoice.clientAddress.country);
+      setClientName(selectedInvoice.clientName);
+      setClientEmail(selectedInvoice.clientEmail); 
+
+    }
+  }, [selectedTab, invoices, setSenderStreet]);
     
-    return <div className="kafafa">{invoices.map((item)=>{
-     if(item.id==selectedTab){
+    return <div>
+      <SideNav/>
+      <Invoice/>
+      <div className="kafafa">{invoices.map((item)=>{
+
+       if(item.id==selectedTab){
+          
+        
         return   <div className="receipt">
 
          <div className="receipt-nav">
@@ -16,7 +45,7 @@ const Receipt=()=>{
         <div className="status"><span className="status-indicator"></span>Paid</div>
         </div>
         <div className="nav-buttons">
-          <button className="edit">Edit</button>
+          <button onClick={()=>setPopover(!popover)} className="edit">Edit</button>
           <button className="delete">Delete</button>
           <button className="markAsPaid">Mark As Paid</button>
         </div>
@@ -102,11 +131,6 @@ const Receipt=()=>{
         </div> 
      }
 
-
-
-
-
-
-    } )}</div>
+    } )}</div></div>
 }
 export default Receipt;

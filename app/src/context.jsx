@@ -18,9 +18,23 @@ export  const ContextProvider=({children})=>{
       }
     ]);
     const [popover,setPopover]=useState(true);
+    const [senderStreet,setSenderStreet]=useState("");
     
+    
+
+    const [senderCity,setSenderCity]=useState("");
+    const [senderPostCode,setSenderPostCode]=useState("");
+    const [senderCountry,setSenderCountry]=useState("");
+
+    const [clientStreet,setClientStreet]=useState("");
+    const [clientCity,setClientCity]=useState("");
+    const [clientPostCode,setClientPostCode]=useState("");
+    const [clientCountry,setClientCountry]=useState("");
+    const [clientName,setClientName]=useState("");
+    const [clientEmail,setClientEmail]=useState("");
+
      
-    return <BillContext.Provider value={{popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
+    return <BillContext.Provider value={{clientEmail,setClientEmail,clientName,setClientName,clientCountry,setClientCountry,clientPostCode,setClientPostCode,clientCity,setClientCity,clientStreet,setClientStreet,senderCountry,setSenderCountry,senderPostCode,setSenderPostCode,senderCity,setSenderCity,senderStreet,setSenderStreet,popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
        {children}
     </BillContext.Provider>
 
