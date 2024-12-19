@@ -8,11 +8,16 @@ import Invoice from "./Invoice";
 const Receipt=()=>{
     const {selectedTab,setSelectedTab}=useContext(BillContext);
     const{invoices,setInvoices}=useContext(BillContext);
-    const {popover,setPopover,senderStreet,setSenderStreet,setSenderCity,setSenderPostCode,setSenderCountry,setClientStreet,setClientCity,setClientPostCode,setClientCountry,setClientName,setClientEmail}=useContext(BillContext);
+    const {popover,setPopover,senderStreet,setSenderStreet,setSenderCity,setSenderPostCode,setSenderCountry,setClientStreet,setClientCity,setClientPostCode,setClientCountry,setClientName,setClientEmail,clientName}=useContext(BillContext);
+
+   
+
+
 
 
     useEffect(() => {
     const selectedInvoice = invoices.find((item) => item.id === selectedTab);
+
     if (selectedInvoice) {
       setSenderStreet(selectedInvoice.senderAddress.street);
       setSenderCity(selectedInvoice.senderAddress.city);
@@ -98,37 +103,50 @@ const Receipt=()=>{
 
        </div>
        </div>
-         <div className="bagga">
+
+       <div className="bagga">
         <div className="item-table">
           <div className="itemNameDetails">
         <div className="name-itemName" >Item Name</div>
-        <div className="itemName">{item.items[0].name}</div>
         </div>
 
         <div className="itemQuantyDetails">
        <div className="name-Qty"> QTY.</div>
-       <div className="itemQuantity">{item.items[0].quantity}</div>
        </div>
 
        <div className="itemPriceDetails">
        <div className="name-price"> Price</div>
-       <div className="itemPrice">{item.items[0].price}</div>
        </div>
 
        <div className="itemSumDetails">
        <div className="total">Total</div>
-       <div className="itemTotal">{item.items[0].total}</div>
        </div>
      
 
         </div>
-        <div className="AmountDue">
+        
+        
+   {  item.items.map((i)=> {return <div >
+             <div className="item-table">
+        <div className="itemName">{i.name}</div>
+       <div className="itemQuantity">{i.quantity}</div>
+       <div className="itemPrice">{i.price}</div>
+       <div className="itemTotal">{i.total}</div>
+      </div>
+      </div>
+
+
+       
+   })
+}
+
+<div className="AmountDue">
           <div className="amount">Amount</div>
-          <div className="totalAmountDue">£{item.total}</div>
+          <div className="totalAmountDue">£{}</div>
 
         </div>
-        </div>
         </div> 
+        </div>
      }
 
     } )}</div></div>

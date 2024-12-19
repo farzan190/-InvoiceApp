@@ -5,7 +5,7 @@ import { BillContext } from "../context";
 
 const Invoice=()=>{
     
-    const {itemsList,setItemsList,senderCity,setSenderCity,senderPostCode,setSenderPostCode,senderCountry,setSenderCountry,clientStreet,setClientStreet,clientCity,setClientCity,clientPostCode,setClientPostCode,clientCountry,setClientCountry,clientName,setClientName,clientEmail,setClientEmail}=useContext(BillContext);
+    const {selectedTab,itemsList,setItemsList,senderCity,setSenderCity,senderPostCode,setSenderPostCode,senderCountry,setSenderCountry,clientStreet,setClientStreet,clientCity,setClientCity,clientPostCode,setClientPostCode,clientCountry,setClientCountry,clientName,setClientName,clientEmail,setClientEmail}=useContext(BillContext);
     
     const [date,setDate]=useState('2024-12-12');
     const{invoices,setInvoices}=useContext(BillContext);
@@ -43,7 +43,33 @@ const Invoice=()=>{
       ])
     }
 
-
+    const Save=()=>{
+      const updatedInvoice= invoices.map((invoice)=>{ 
+        if(invoice.id===selectedTab){
+        return {...invoice,
+          senderAddress:{...invoice.senderAddress,
+            street:senderStreet,
+            postCode:senderPostCode,
+            city:senderCity,
+            country:senderCountry,
+          },
+          clientName:clientName,
+          clientEmail:clientEmail,
+          clientAddress:{...invoice.clientAddress,
+            street:clientStreet,
+            postCode:clientPostCode,
+            city:clientCity,
+            country:clientCountry,
+          },
+        }}
+        else {
+          return invoice;
+        }
+      
+      });
+      setInvoices(updatedInvoice);
+      
+    }
 
     return <div className="invoicePopup">
     <div className={popover?"popUpForm":"popUpFormHidden"}>
@@ -143,7 +169,7 @@ const Invoice=()=>{
 </div>
 
 
-<div className="wrap"> {modernList.map((item,index)=><NewItemList id={index+1} name={item.name} qty={item.quantity} price={item.price} total={item.total} />)}</div>
+<div className="wrap"> {itemsList.map((item,index)=><NewItemList id={index+1} name={item.name} qty={item.quantity} price={item.price} total={item.total} />)}</div>
 <button onClick={()=>setItemsList([...itemsList,{
         "id":"1",
         "name": "New Item",
@@ -156,7 +182,7 @@ const Invoice=()=>{
 <div className="popUpButtons">
 <button className="discard" onClick={()=>setPopover(!popover)}>Discard</button>
 <button className="saveAsDraft" onClick={()=>handleSaveAsDraft()}>Save as Draft</button>
-<button className="saveAndSend">Save and Send</button>
+<button className="saveAndSend" onClick={()=>Save()}>Save and Send</button>
 
     
 </div>

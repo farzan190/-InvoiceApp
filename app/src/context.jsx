@@ -3,7 +3,7 @@ import invoiceData from './utils/data.json';
 
 export  const BillContext=createContext(null);
 export  const ContextProvider=({children})=>{
-     const [selectedTab,setSelectedTab]=useState();
+     const [selectedTab,setSelectedTab]=useState("");
      const[invoices,setInvoices]=useState(invoiceData);
      const [itemName,setItemName]=useState("ABC");
      const [quantity,setQuantity]=useState(1);
