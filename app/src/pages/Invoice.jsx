@@ -9,10 +9,9 @@ const Invoice=()=>{
     
     const [date,setDate]=useState('2024-12-12');
     const{invoices,setInvoices}=useContext(BillContext);
-    const {popover,setPopover,senderStreet,setSenderStreet}=useContext(BillContext);
-
-
-   const modernList=itemsList.map((item)=>item);
+    const {popover,setPopover,senderStreet,setSenderStreet,exp,setExp}=useContext(BillContext);
+     
+   
 
     const handleSaveAsDraft=()=>{
       setInvoices([...invoices,{
@@ -46,6 +45,7 @@ const Invoice=()=>{
     const Save=()=>{
       const updatedInvoice= invoices.map((invoice)=>{ 
         if(invoice.id===selectedTab){
+          
         return {...invoice,
           senderAddress:{...invoice.senderAddress,
             street:senderStreet,
@@ -61,6 +61,7 @@ const Invoice=()=>{
             city:clientCity,
             country:clientCountry,
           },
+          //items:exp,
         }}
         else {
           return invoice;
@@ -169,8 +170,33 @@ const Invoice=()=>{
 </div>
 
 
-<div className="wrap"> {itemsList.map((item,index)=><NewItemList id={index+1} name={item.name} qty={item.quantity} price={item.price} total={item.total} />)}</div>
-<button onClick={()=>setItemsList([...itemsList,{
+<div className="wrap"> {
+  invoices.map((item,index)=>{
+
+    if(selectedTab==item.id){
+      setItemsList(item.items);
+      return  item.items.map((obj,ind)=>{
+                                
+                            return <NewItemList id={ind+1}
+                                  name={obj.name} 
+                                  qty={obj.quantity}
+                                  price={obj.price}
+                                  total={obj.total}
+                                  />                                  
+                                })  
+            }      
+     
+   else{
+    return ;
+   }
+
+  
+  })
+   }</div>
+
+
+
+<button onClick={()=>setExp([...exp,{
         "id":"1",
         "name": "New Item",
         "quantity": 1,

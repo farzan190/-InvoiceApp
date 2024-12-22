@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react"
 import invoiceData from './utils/data.json';
+import Invoice from "./pages/Invoice";
 
 export  const BillContext=createContext(null);
 export  const ContextProvider=({children})=>{
@@ -11,11 +12,11 @@ export  const ContextProvider=({children})=>{
      const [total,setTotal]=useState(1199);
      const [itemsList,setItemsList]=useState([
       {
-        "name": "New Item",
+        "name": "farzan",
         "quantity": 1,
         "price": 0,
         "total": 0,
-      }
+      },
     ]);
     const [popover,setPopover]=useState(true);
     const [senderStreet,setSenderStreet]=useState("");
@@ -32,9 +33,10 @@ export  const ContextProvider=({children})=>{
     const [clientCountry,setClientCountry]=useState("");
     const [clientName,setClientName]=useState("");
     const [clientEmail,setClientEmail]=useState("");
+    const [exp,setExp]=useState("");
 
      
-    return <BillContext.Provider value={{clientEmail,setClientEmail,clientName,setClientName,clientCountry,setClientCountry,clientPostCode,setClientPostCode,clientCity,setClientCity,clientStreet,setClientStreet,senderCountry,setSenderCountry,senderPostCode,setSenderPostCode,senderCity,setSenderCity,senderStreet,setSenderStreet,popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
+    return <BillContext.Provider value={{exp,setExp,clientEmail,setClientEmail,clientName,setClientName,clientCountry,setClientCountry,clientPostCode,setClientPostCode,clientCity,setClientCity,clientStreet,setClientStreet,senderCountry,setSenderCountry,senderPostCode,setSenderPostCode,senderCity,setSenderCity,senderStreet,setSenderStreet,popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
        {children}
     </BillContext.Provider>
 

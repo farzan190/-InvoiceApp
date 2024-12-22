@@ -41,7 +41,7 @@ const Receipt=()=>{
 
        if(item.id==selectedTab){
           
-        
+         
         return   <div className="receipt">
 
          <div className="receipt-nav">
