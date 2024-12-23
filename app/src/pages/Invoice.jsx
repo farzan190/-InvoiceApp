@@ -11,7 +11,7 @@ const Invoice=()=>{
     const{invoices,setInvoices}=useContext(BillContext);
     const {popover,setPopover,senderStreet,setSenderStreet,exp,setExp}=useContext(BillContext);
      
-   
+       
 
     const handleSaveAsDraft=()=>{
       setInvoices([...invoices,{
@@ -71,6 +71,32 @@ const Invoice=()=>{
       setInvoices(updatedInvoice);
       
     }
+
+    const addlistitem=()=>{
+      const updatedInvoice= invoices.map((invoice)=>{ 
+        if(invoice.id===selectedTab){
+          
+        return {...invoice,
+          items:[...invoice.items,{
+            "name": "new Item",
+            "quantity": 0,
+            "price": 0,
+            "total": 0
+          }],
+        }}
+
+
+
+        else {
+          return invoice;
+        }
+      
+      });
+      setInvoices(updatedInvoice);
+      
+    }
+
+
 
     return <div className="invoicePopup">
     <div className={popover?"popUpForm":"popUpFormHidden"}>
@@ -171,9 +197,13 @@ const Invoice=()=>{
 
 
 <div className="wrap"> {
-  invoices.map((item,index)=>{
+  
+  
+  
+ invoices.map((item,index)=>{
 
     if(selectedTab==item.id){
+      
       setItemsList(item.items);
       return  item.items.map((obj,ind)=>{
                                 
@@ -187,22 +217,17 @@ const Invoice=()=>{
             }      
      
    else{
-    return ;
+    return  ;
    }
 
   
-  })
+  }) 
+  
    }</div>
 
 
 
-<button onClick={()=>setExp([...exp,{
-        "id":"1",
-        "name": "New Item",
-        "quantity": 1,
-        "price": 0,
-        "total": 0,
-}])} className="AddNewButton">+AddNewItem</button>
+<button onClick={()=>addlistitem()} className="AddNewButton">+AddNewItem</button>
 
 
 <div className="popUpButtons">

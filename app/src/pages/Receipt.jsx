@@ -30,7 +30,7 @@ const Receipt=()=>{
       setClientCountry(selectedInvoice.clientAddress.country);
       setClientName(selectedInvoice.clientName);
       setClientEmail(selectedInvoice.clientEmail); 
-
+      
     }
   }, [selectedTab, invoices, setSenderStreet]);
     
