@@ -4,7 +4,7 @@ import Invoice from "./pages/Invoice";
 
 export  const BillContext=createContext(null);
 export  const ContextProvider=({children})=>{
-     const [selectedTab,setSelectedTab]=useState("");
+     const [selectedTab,setSelectedTab]=useState(-1);
      const[invoices,setInvoices]=useState(invoiceData);
      const [itemName,setItemName]=useState("ABC");
      const [quantity,setQuantity]=useState(1);
@@ -12,8 +12,8 @@ export  const ContextProvider=({children})=>{
      const [total,setTotal]=useState(1199);
      const [itemsList,setItemsList]=useState([
       {
-        "name": "farzan",
-        "quantity": 1,
+        "name": "new item",
+        "quantity": 0,
         "price": 0,
         "total": 0,
       },

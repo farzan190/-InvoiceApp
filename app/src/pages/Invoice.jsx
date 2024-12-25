@@ -14,6 +14,7 @@ const Invoice=()=>{
        
 
     const handleSaveAsDraft=()=>{
+      console.log(itemsList);
       setInvoices([...invoices,{
         "id": "RT8888",
         "createdAt": date,
@@ -73,6 +74,8 @@ const Invoice=()=>{
     }
 
     const addlistitem=()=>{
+       setItemsList([...itemsList,{ name:"",quantity:"",price:"",total:""}])
+
       const updatedInvoice= invoices.map((invoice)=>{ 
         if(invoice.id===selectedTab){
           
@@ -196,15 +199,19 @@ const Invoice=()=>{
 </div>
 
 
+
+<div className="wrap">{ selectedTab==-1 && itemsList.map((obj,ind)=>{return <NewItemList id={ind+1}
+  name={obj.name} 
+  qty={obj.quantity}
+  price={obj.price}
+  total={obj.total}
+  />} ) }  </div>
+
 <div className="wrap"> {
   
-  
-  
- invoices.map((item,index)=>{
+  invoices.map((item,index)=>{
 
     if(selectedTab==item.id){
-      
-      setItemsList(item.items);
       return  item.items.map((obj,ind)=>{
                                 
                             return <NewItemList id={ind+1}
@@ -218,12 +225,14 @@ const Invoice=()=>{
      
    else{
     return  ;
+     ;
    }
-
   
-  }) 
   
-   }</div>
+  })
+   }
+   
+ </div>
 
 
 

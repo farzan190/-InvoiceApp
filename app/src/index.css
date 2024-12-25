@@ -831,3 +831,17 @@ border: none;
   opacity: 1;
   visibility: hidden;
 }
+
+
+/* 
+
+
+
+
+
+itemsList.map((obj,ind)=>{return <NewItemList id={ind+1}
+  name={obj.name} 
+  qty={obj.quantity}
+  price={obj.price}
+  total={obj.total}
+  />} )*/

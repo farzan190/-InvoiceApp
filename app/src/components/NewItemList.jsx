@@ -8,11 +8,9 @@ const NewItemList=({id,name,qty,price,total})=>{
     const [itemTotal,setTotal]=useState(total);
     const {exp,setExp,itemsList,setItemsList,setInvoices,invoices,selectedTab}=useContext(BillContext);
 
-     // if the id of the item in the itemlist matches with the id of the passed items 
     const shave=()=>{
       const updatedInvoice= invoices.map((invoice)=>{ 
         if(invoice.id===selectedTab){
-          
         return {...invoice,
           items:invoice.items.map((i,index)=>{
              if(index+1==id){
@@ -35,38 +33,62 @@ const NewItemList=({id,name,qty,price,total})=>{
         }
       
       });
+          
+      const updateItemsList=itemsList.map((itm,index)=>{
+        if(id==index+1){
+        return {
+          ...itm,
+          name:itemName,
+          quantity:itemQuantity,
+          price:itemPrice,
+          total:itemTotal,
+        }}
+        else{
+          return itm;
+        }
+      })
+      setItemsList(updateItemsList);
       setInvoices(updatedInvoice);
       
     }
-
-
-
-    const updatedList=itemsList.map((item,index)=>{           
-      if(index+1==id){  
-        
-      return {
-              ...item,
+    const naive=()=>{
+      const updatedItemslist= itemsList.map((item,index)=>{ 
+        if(item.id===index+1){
+          
+        return {...invoice,
+          items:invoice.items.map((i,index)=>{
+             if(index+1==id){
+            return {
+              ...i,
               name:itemName,
               quantity:itemQuantity,
               price:itemPrice,
               total:itemTotal,
-            }        
-        }
-        else{
-          return item;
-        }
+            }}
+            else {
+              return i;
+            }
 
-    })
 
+          }),
+        }}
+        // update the itemslist and then it will be automcatically be there right . YOU JUST NEED TO UPDATE THE ITEMSLIST JUST UPDATE THE ITEMSLIST 
+
+      
+      });
+//      setInvoices(updatedInvoice);
+      
+    }
+
+
+   
 
     useEffect(
      ()=>{
-     // setItemsList(updatedList);
-      //  setExp(updatedList);
-     shave();
 
-        
-     }   ,[itemName,itemQuantity,itemPrice,itemTotal])
+      shave();
+
+    }   ,[itemName,itemQuantity,itemPrice,itemTotal])
 
 
 
