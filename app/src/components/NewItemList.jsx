@@ -51,34 +51,7 @@ const NewItemList=({id,name,qty,price,total})=>{
       setInvoices(updatedInvoice);
       
     }
-    const naive=()=>{
-      const updatedItemslist= itemsList.map((item,index)=>{ 
-        if(item.id===index+1){
-          
-        return {...invoice,
-          items:invoice.items.map((i,index)=>{
-             if(index+1==id){
-            return {
-              ...i,
-              name:itemName,
-              quantity:itemQuantity,
-              price:itemPrice,
-              total:itemTotal,
-            }}
-            else {
-              return i;
-            }
-
-
-          }),
-        }}
-        // update the itemslist and then it will be automcatically be there right . YOU JUST NEED TO UPDATE THE ITEMSLIST JUST UPDATE THE ITEMSLIST 
-
-      
-      });
-//      setInvoices(updatedInvoice);
-      
-    }
+    
 
 
    

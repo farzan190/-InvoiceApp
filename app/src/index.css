@@ -53,7 +53,7 @@
 
 }
 
-.status-button{
+.status-button-paid{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,11 +67,57 @@
   border: none;
  gap: 5px;
 }
-.status-indicator{
+.status-button-pending{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100px;
+  color: #ff8f00;
+  background-color: rgba(51, 214, 159, .06);
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+ gap: 5px;
+}
+
+
+
+.status-indicator-paid{
   height: 7px;
   width: 7px;
   border-radius: 50%;
   background-color: #33d69f;
+}
+.status-indicator-pending{
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: #ff8f00;
+}
+.status-indicator-draft{
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.status-button-draft{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100px;
+  color: black;
+  background-color: rgba(51, 214, 159, .06);
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+ gap: 5px;
+
+
 }
 nav{
   display: flex;

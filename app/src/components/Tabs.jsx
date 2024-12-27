@@ -22,9 +22,10 @@ const Tabs=({key,id,createdAt,clientName,itemTotal,status})=>{
          </div>
          <div className="right-details">
          <div className="itemTotal">£{itemTotal}</div>
-         <button className="status-button"><div className="status-indicator"></div>{status}</button>
+         <button className={status=="paid"?"status-button-paid":status=="pending"?"status-button-pending":"status-button-draft"}><div className={status=="paid"?"status-indicator-paid":status=="pending"?"status-indicator-pending":"status-indicator-draft"}></div>{status}</button>
          <img src={Arrowimg} alt='arrow-image'/>
          </div>
     </div></Link>
 }
+//"status-button-pending"
 export default Tabs;
