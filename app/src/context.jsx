@@ -35,8 +35,9 @@ export  const ContextProvider=({children})=>{
     const [clientEmail,setClientEmail]=useState("");
     const [exp,setExp]=useState("");
 
+  const [displayInvoices,setDisplayInvoices]=useState(invoices);
      
-    return <BillContext.Provider value={{exp,setExp,clientEmail,setClientEmail,clientName,setClientName,clientCountry,setClientCountry,clientPostCode,setClientPostCode,clientCity,setClientCity,clientStreet,setClientStreet,senderCountry,setSenderCountry,senderPostCode,setSenderPostCode,senderCity,setSenderCity,senderStreet,setSenderStreet,popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
+    return <BillContext.Provider value={{displayInvoices,setDisplayInvoices,exp,setExp,clientEmail,setClientEmail,clientName,setClientName,clientCountry,setClientCountry,clientPostCode,setClientPostCode,clientCity,setClientCity,clientStreet,setClientStreet,senderCountry,setSenderCountry,senderPostCode,setSenderPostCode,senderCity,setSenderCity,senderStreet,setSenderStreet,popover,setPopover,itemsList,setItemsList,total,setTotal,price,setPrice,quantity,setQuantity,itemName,setItemName,selectedTab,setSelectedTab,invoices,setInvoices}}>
        {children}
     </BillContext.Provider>
 

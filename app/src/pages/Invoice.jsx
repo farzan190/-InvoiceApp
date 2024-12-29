@@ -2,21 +2,20 @@ import { useContext, useState } from "react";
 import ItemCalculator from "../components/ItemCalculator";
 import NewItemList from "../components/NewItemList";
 import { BillContext } from "../context";
-
+import { v4 as uuidv4 } from 'uuid';
 const Invoice=()=>{
     
     const {selectedTab,itemsList,setItemsList,senderCity,setSenderCity,senderPostCode,setSenderPostCode,senderCountry,setSenderCountry,clientStreet,setClientStreet,clientCity,setClientCity,clientPostCode,setClientPostCode,clientCountry,setClientCountry,clientName,setClientName,clientEmail,setClientEmail}=useContext(BillContext);
     
     const [date,setDate]=useState('2024-12-12');
     const{invoices,setInvoices}=useContext(BillContext);
-    const {popover,setPopover,senderStreet,setSenderStreet,exp,setExp}=useContext(BillContext);
+    const {popover,setPopover,senderStreet,setSenderStreet,exp,setExp,displayInvoices,setDisplayInvoices}=useContext(BillContext);
      
        
 
     const handleSaveAsDraft=()=>{
-      console.log(itemsList);
-      setInvoices([...invoices,{
-        "id": "RT8888",
+      const newInvoice=[{
+        "id": uuidv4().toString(36).substring(2, 8).toUpperCase(),
         "createdAt": date,
         "paymentDue": "2021-8-19",
         "description": "Re-branding",
@@ -38,9 +37,12 @@ const Invoice=()=>{
         },
         "items": itemsList,
         "total": 1800.90
-      }
-
-      ])
+      },
+      ...invoices,
+      ]
+      setInvoices(newInvoice);
+      setDisplayInvoices(newInvoice);
+      console.log(displayInvoices);
     }
 
     const Save=()=>{
@@ -70,6 +72,7 @@ const Invoice=()=>{
       
       });
       setInvoices(updatedInvoice);
+      setDisplayInvoices(updatedInvoice);
       
     }
 
@@ -239,14 +242,16 @@ const Invoice=()=>{
 <button onClick={()=>addlistitem()} className="AddNewButton">+AddNewItem</button>
 
 
-<div className="popUpButtons">
+{selectedTab==-1 ?<div className="popUpButtons">
 <button className="discard" onClick={()=>setPopover(!popover)}>Discard</button>
 <button className="saveAsDraft" onClick={()=>handleSaveAsDraft()}>Save as Draft</button>
 <button className="saveAndSend" onClick={()=>Save()}>Save and Send</button>
+</div>:<div>
+  <button className="discard" onClick={()=>setPopover(!popover)} >Cancel</button>
+  <button className="saveAndSend" onClick={()=>Save()}>Save changes</button>
 
-    
 </div>
-
+}
     </div>
     
     <div className={popover?"shadow":"shadowHidden"}></div>

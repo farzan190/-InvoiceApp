@@ -8,7 +8,7 @@ import Invoice from "./Invoice";
 const Receipt=()=>{
     const {selectedTab,setSelectedTab}=useContext(BillContext);
     const{invoices,setInvoices}=useContext(BillContext);
-    const {popover,setPopover,senderStreet,setSenderStreet,setSenderCity,setSenderPostCode,setSenderCountry,setClientStreet,setClientCity,setClientPostCode,setClientCountry,setClientName,setClientEmail,clientName}=useContext(BillContext);
+    const {setDisplayInvoices,popover,setPopover,senderStreet,setSenderStreet,setSenderCity,setSenderPostCode,setSenderCountry,setClientStreet,setClientCity,setClientPostCode,setClientCountry,setClientName,setClientEmail,clientName}=useContext(BillContext);
 
    
 
@@ -33,6 +33,24 @@ const Receipt=()=>{
       
     }
   }, [selectedTab, invoices, setSenderStreet]);
+
+   const handleStatus=(id)=>{ 
+    const update=invoices.map((item)=>{
+    if(item.id==id)
+    { return {
+      ...item,
+      status:"paid"
+    }
+    }
+    else{
+      return item;
+    }
+
+    })
+   setInvoices(update);
+   setDisplayInvoices(update);
+   console.log("this is updated status",invoices);
+   } 
     
     return <div>
       <SideNav/>
@@ -47,12 +65,13 @@ const Receipt=()=>{
          <div className="receipt-nav">
           <div className="receipt-status">
         <div className="stats" >Status</div>
-        <div className="status"><span className="status-indicator"></span>Paid</div>
+        <button className={item.status=="paid"?"status-button-paid":item.status=="pending"?"status-button-pending":"status-button-draft"}><div className={item.status=="paid"?"status-indicator-paid":item.status=="pending"?"status-indicator-pending":"status-indicator-draft"}></div>{item.status}</button>
+
         </div>
         <div className="nav-buttons">
           <button onClick={()=>setPopover(!popover)} className="edit">Edit</button>
           <button className="delete">Delete</button>
-          <button className="markAsPaid">Mark As Paid</button>
+          <button className="markAsPaid" onClick={()=>handleStatus(item.id)}>Mark As Paid</button>
         </div>
          </div>
 

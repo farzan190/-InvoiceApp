@@ -74,7 +74,7 @@
   height: 30px;
   width: 100px;
   color: #ff8f00;
-  background-color: rgba(51, 214, 159, .06);
+  background-color: rgba(255, 143, 0, .06);
   font-weight: 700;
   padding: 5px 10px;
   border-radius: 5px;
@@ -123,7 +123,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 260px;
+  gap: 325px;
   margin-bottom: 50px;
   margin-top: 30px;
 }
@@ -131,6 +131,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 .right-nav{
   display: flex;
@@ -162,8 +163,10 @@ font-size: small;
 }
 
 .Invoices-heading{
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
+  letter-spacing: -1px;
+  color: #0c0e16;
 }
 .AddInvoice{
   display: flex;
@@ -415,6 +418,7 @@ section{
     justify-content: center;
     gap: 20px;
     margin-top: 485px;
+    margin-bottom: 30px;
 }
 .clientEmail{
   background-color: white;
@@ -877,7 +881,23 @@ border: none;
   opacity: 1;
   visibility: hidden;
 }
+.selectingFilter{
+  height: 15px;
+  width: 20px;
+  border: none;
+}
 
+.filterByStatus{
+  
+  font-weight: 600;
+  font-size: 13px;
+  color: #0c0e16;
+}
+
+.Invoices-length{
+  color: grey;
+  font-size: 14px;
+}
 
 /* 
 
