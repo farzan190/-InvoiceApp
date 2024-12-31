@@ -253,6 +253,7 @@ section{
   align-items: flex-start;
   gap: 100px;
   background-color: white;
+  margin-bottom: 60px;
 
 }
 .kafafa{
@@ -361,21 +362,25 @@ section{
 .street{
   background-color: white;
   color:  #888eb0;
+  font-size: small;
 
 }
 .city{
   background-color: white;
   color:  #888eb0;
+  font-size: small;
 
 }
 .postcode{
   background-color: white;
   color:  #888eb0;
+  font-size: small;
 
 }
 .country{
   background-color: white;
   color:  #888eb0;
+  font-size: small;
 
 }
 
@@ -383,9 +388,10 @@ section{
   background-color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 30px;
+
 }
 .invoice-date{
   color:#888eb0;
@@ -402,6 +408,7 @@ section{
   background-color: white;
   font-weight: 600;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 .InvoiceCreatedAt{
   background-color: white;
@@ -483,26 +490,48 @@ section{
   background-color: #f9fafe;
 }
 .name-itemName{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
   background-color: #f9fafe;
-  color: #888eb0;;
+  color: #888eb0;
+  gap: 25px;
+  padding: 15px;
 }
 .name-Qty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #f9fafe;
-  color: #888eb0;;
+  color: #888eb0;
+  gap: 25px;
+
 }
 .name-price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #f9fafe;
   color: #888eb0;;
+  gap: 25px;
 
 }
 
-.total{
+.total{ 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
   background-color: #f9fafe;
 color: #888eb0;;
+gap: 25px;
+padding-right: 15px;
 }
 .itemName{
   background-color: #f9fafe;
-  font-weight: 600;
 
 }
 .itemQuantity{
@@ -654,12 +683,31 @@ color: #888eb0;;
   align-items: flex-start;
   flex-direction: column;
   background-color: white;
-  color:  #888eb0;
+  /*color:  #888eb0;*/
 }
 .billTo{
   background-color: white;
   color: #7c5dfa;
   font-weight: 600;
+}
+.billDate{
+  background-color: white;
+}
+.payementDue{
+  color:  #888eb0;
+  background-color: white;
+}
+.dueDate{
+  margin-top: 10px;
+  background-color: white;
+  font-weight: 600;
+}
+.payDate{
+  background-color: white;
+}
+.clientBillTo{
+  background-color: white;
+  color:  #888eb0;
 }
 label{
   background-color: white;
@@ -899,15 +947,36 @@ border: none;
   font-size: 14px;
 }
 
+.itemsPope{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafe;
+  width: 100%;
+}
+
+.recieptItemQty{
+  color: #0c0e16;;
+  background-color: #f9fafe;
+  font-weight:bold;
+  margin-bottom: 20px;
+}
+
 /* 
 
 
 
 
 
-itemsList.map((obj,ind)=>{return <NewItemList id={ind+1}
-  name={obj.name} 
-  qty={obj.quantity}
-  price={obj.price}
-  total={obj.total}
-  />} )*/
+item.items.map((i)=> {return <div >
+             <div className="item-table">
+        <div className="itemName">{i.name}</div>
+       <div className="itemQuantity">{i.quantity}</div>
+       <div className="itemPrice">{i.price}</div>
+       <div className="itemTotal">{i.total}</div>
+      </div>
+      </div>
+
+
+       
+   })*/

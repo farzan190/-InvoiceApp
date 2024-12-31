@@ -92,19 +92,19 @@ const Receipt=()=>{
        <div className="billing-address">
 
         <div className="dates">
-          <div>
+          <div className="billDate">
         <div className="invoice-date">Invoice Date</div>
         <div className="InvoiceCreatedAt">{item.createdAt}</div>
-        <div>{console.log(item.createdAt)}</div>
+        
         </div>
-        <div>
-        <div>Payment Due</div>
-        <div>{item.paymentDue}</div>
+        <div className="payDate">
+        <div className="payementDue">Payment Due</div>
+        <div className="dueDate">{item.paymentDue}</div>
         </div>
         </div>
 
           <div className="senderAddress">
-        <div className="billTo">Bill To</div>
+        <div className="clientBillTo">Bill To</div>
         <div className="BillClientName">{item.clientName}</div>
         <div className="street">{item.senderAddress.street},</div>
         <div className="city">{item.senderAddress.city},</div>
@@ -121,43 +121,53 @@ const Receipt=()=>{
 
 
        </div>
-       </div>
 
        <div className="bagga">
-        <div className="item-table">
-          <div className="itemNameDetails">
-        <div className="name-itemName" >Item Name</div>
-        </div>
-
-        <div className="itemQuantyDetails">
-       <div className="name-Qty"> QTY.</div>
-       </div>
-
-       <div className="itemPriceDetails">
-       <div className="name-price"> Price</div>
-       </div>
-
-       <div className="itemSumDetails">
-       <div className="total">Total</div>
-       </div>
-     
-
-        </div>
         
         
-   {  item.items.map((i)=> {return <div >
-             <div className="item-table">
-        <div className="itemName">{i.name}</div>
-       <div className="itemQuantity">{i.quantity}</div>
-       <div className="itemPrice">{i.price}</div>
-       <div className="itemTotal">{i.total}</div>
-      </div>
+        
+   
+
+      <div className="itemsPope">
+        
+      <div className="name-itemName" >
+       <div className="itemName"> Item Name </div>
+      { item.items.map((i)=>{
+       return <div className="recieptItemQty">{i.name}</div>
+    })
+      }</div>
+ 
+   <div className="name-Qty"> 
+    <div className="quantity">QTY.</div>
+    { item.items.map((i)=>{
+       return <div className="recieptItemQty">{i.quantity}</div>
+    })
+      }</div>
+
+<div className="name-price"> 
+ <div className="price"> Price </div>
+ { item.items.map((i)=>{
+       return <div className="recieptItemQty">£{i.price}</div>
+    })
+      }</div>
+
+<div className="total">
+ <div className="total"> Total</div>
+{ item.items.map((i)=>{
+       return <div className="recieptItemQty">£{i.total}</div>
+    })
+      }</div>
+
       </div>
 
 
-       
-   })
-}
+
+
+
+
+
+
+
 
 <div className="AmountDue">
           <div className="amount">Amount</div>
@@ -165,7 +175,8 @@ const Receipt=()=>{
 
         </div>
         </div> 
-        </div>
+       </div>
+       </div>
      }
 
     } )}</div></div>

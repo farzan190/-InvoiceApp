@@ -51,10 +51,6 @@ const NewItemList=({id,name,qty,price,total})=>{
       setInvoices(updatedInvoice);
       
     }
-    
-
-
-   
 
     useEffect(
      ()=>{
