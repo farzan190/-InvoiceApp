@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import ItemCalculator from "../components/ItemCalculator";
 import NewItemList from "../components/NewItemList";
 import { BillContext } from "../context";
 import { v4 as uuidv4 } from 'uuid';
