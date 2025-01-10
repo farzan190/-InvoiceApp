@@ -72,7 +72,7 @@ const Invoice=()=>{
       });
       setInvoices(updatedInvoice);
       setDisplayInvoices(updatedInvoice);
-      
+      setPopover(!popover);
     }
 
     const addlistitem=()=>{
