@@ -24,7 +24,7 @@ A modern, feature-rich invoice management application for seamless tracking, cre
 
 ## 🚀 Live Demo
 
-Check out the live demo: [https://invoice-app-ukdd.vercel.app/](#)
+Check out the live demo: [https://invoice-app-ukdd.vercel.app/](https://invoice-app-ukdd.vercel.app/)
 
 ---
 
